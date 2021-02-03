@@ -6,24 +6,13 @@ encoding utf-8
 Sheet 7 10
 Title "Artix - Datacenter Secure Control Module (DC-SCM)"
 Date ""
-Rev "1.0.0"
+Rev "1.0.3"
 Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L artix-dc-scm:SFF-TA-1002-4C+ J5
-U 1 1 625AED2C
-P 7875 1425
-F 0 "J5" H 7875 1590 50  0000 C CNN
-F 1 "SFF-TA-1002-4C+" H 7875 1499 50  0000 C CNN
-F 2 "artix-dc-scm-footprints:SFF-TA-1002-4C+" H 8275 1475 50  0001 C CNN
-F 3 "https://cdn.amphenol-icc.com/media/wysiwyg/files/documentation/sme005.pdf?__cf_chl_jschl_tk__=4604d1306574a1ee474ea914090d3e0c57e266a6-1606907014-0-AbkYBTCTl__kMBcY3BDmgKpfUy32FqitwN2Lniuy8W-uyv2Ev04Q-Q5Mr7srIz_Wnur0_9chB4CRbxKSYcEh7IvAJYsUgJ0PWIS5YdRqqHg567uaZciEX2hQP4ss5l6M4XdNrxEjJppHvyRV3ku89t-VmUSzhgCb8oJlyHpTxST4dEmKZNXfM53TM0tmGirdVbCRt1Byrx5pkz_uMvNABIOj7B2-eDGK52J3DWRD76zEyjdxY7Iz11gPiOY5i_QGIR3uOwkR5LBPNXe8zGqAf8--AKa7RqDbIriQRt90_32C4zIuHqbGa05BXS135E65ov80PbVcb4eSiutCqcJUAacUwu3eVnXVeIumfihJxuP8Rv7_n6saeG_2IuQpEiskzovLGKZM3667Y-rm-AL1NRXTamtvBxqTk0vyMvZ60FgJ" H 7875 1525 50  0001 C CNN
-	1    7875 1425
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7175 1525 6625 1525
 Wire Wire Line
@@ -166,10 +155,6 @@ Wire Wire Line
 	9125 5525 8575 5525
 Wire Wire Line
 	8575 5625 8825 5625
-Wire Wire Line
-	9125 5725 8575 5725
-Wire Wire Line
-	9125 5825 8575 5825
 Wire Wire Line
 	7175 3125 6625 3125
 Wire Wire Line
@@ -418,17 +403,17 @@ I2C[4]_SCL
 Text GLabel 6625 4025 0    50   Input ~ 0
 I2C[4]_SDA
 Text GLabel 6625 4225 0    50   Input ~ 0
-CLK_100M_PCIE_DP
+PCIE_BMC_CLK_100_P
 Text GLabel 6625 4325 0    50   Input ~ 0
-CLK_100M_PCIE_DN
+PCIE_BMC_CLK_100_N
 Text GLabel 6625 4525 0    50   Input ~ 0
-PCIE_BMC_TX_DP
+PCIE_BMC_TX_P
 Text GLabel 6625 4625 0    50   Input ~ 0
-PCIE_BMC_TX_DN
+PCIE_BMC_TX_N
 Text GLabel 6625 4825 0    50   Input ~ 0
-PCIE_BMC_RX_DP
+PCIE_BMC_RX_P
 Text GLabel 6625 4925 0    50   Input ~ 0
-PCIE_BMC_RX_DN
+PCIE_BMC_RX_N
 Text GLabel 6625 5125 0    50   Input ~ 0
 I2C[5]_SCL
 Text GLabel 6625 5225 0    50   Input ~ 0
@@ -579,7 +564,7 @@ Wire Wire Line
 	8825 10125 8825 10425
 Wire Wire Line
 	8825 10425 8575 10425
-Text Notes 7175 925  0    118  ~ 0
+Text Notes 7175 925  0    118  ~ 24
 Edge connector
 Text GLabel 9125 1925 2    50   Input ~ 0
 UART1_SCM_TX
@@ -590,31 +575,13 @@ UART0_SCM_TX
 Text GLabel 9125 2325 2    50   Input ~ 0
 UART0_SCM_RX
 Text GLabel 9125 2525 2    50   Input ~ 0
-SPIO_CLK
+SPI0_CLK
 Text GLabel 9125 2625 2    50   Input ~ 0
-SPIO_CS_N
+SPI0_CS_N
 Text GLabel 9125 2725 2    50   Input ~ 0
-SPIO_MOSI
+SPI0_MOSI
 Text GLabel 9125 2825 2    50   Input ~ 0
-SPIO_MISO
-Text GLabel 9125 3125 2    50   Input ~ 0
-ESPI_CLK
-Text GLabel 9125 3225 2    50   Input ~ 0
-ESPI_CS0_N
-Text GLabel 9125 3325 2    50   Input ~ 0
-ESPI_ALERT_N
-Text GLabel 9125 3425 2    50   Input ~ 0
-ESPI_RESET_N
-Text GLabel 9125 3525 2    50   Input ~ 0
-ESPI_IO0
-Text GLabel 9125 3625 2    50   Input ~ 0
-ESPI_IO1
-Text GLabel 9125 3725 2    50   Input ~ 0
-ESPI_IO2
-Text GLabel 9125 3825 2    50   Input ~ 0
-ESPI_IO3
-Text GLabel 9125 3925 2    50   Input ~ 0
-ESPI_CS1_N
+SPI0_MISO
 Text GLabel 9125 4125 2    50   Input ~ 0
 QSPI0_CLK
 Text GLabel 9125 4225 2    50   Input ~ 0
@@ -668,7 +635,7 @@ SGPIO_RESET_N
 Text GLabel 9125 7225 2    50   Input ~ 0
 SGPIO_INTR_N
 Text GLabel 9125 7325 2    50   Input ~ 0
-P3V0_BAT
+3V0_BAT
 Text GLabel 9125 7425 2    50   Input ~ 0
 QSPI0_CS1_N
 Text GLabel 9125 7725 2    50   Input ~ 0
@@ -684,16 +651,16 @@ QSPI1_D2
 Text GLabel 9125 8225 2    50   Input ~ 0
 QSPI1_D3
 Text GLabel 9125 8425 2    50   Input ~ 0
-USB2_DP
+USB2_D_P
 Text GLabel 9125 8525 2    50   Input ~ 0
-USB2_DN
+USB2_D_N
 Connection ~ 8825 8625
 Wire Wire Line
 	8825 8625 8825 8925
 Text GLabel 9125 8725 2    50   Input ~ 0
-USB1_DP
+USB1_D_P
 Text GLabel 9125 8825 2    50   Input ~ 0
-USB1_DN
+USB1_D_N
 Wire Wire Line
 	8825 10425 8825 10625
 $Comp
@@ -727,22 +694,22 @@ Wire Wire Line
 	8575 6725 8900 6725
 Wire Wire Line
 	8575 6225 9125 6225
-Text GLabel 10150 6375 0    50   Input ~ 0
+Text GLabel 10125 6725 0    50   Input ~ 0
 RSVD2
-Text GLabel 10450 6375 2    50   Input ~ 0
+Text GLabel 10425 6725 2    50   Input ~ 0
 SGPIO0_CLK
 $Comp
 L artix-dc-scm:R_0R_0402 R137
 U 1 1 617019A6
-P 10300 6375
-F 0 "R137" H 10300 6588 60  0000 C CNN
-F 1 "R_0R_0402" H 10300 6225 60  0001 C CNN
-F 2 "artix-dc-scm-footprints:0402-res" H 10500 6575 60  0001 L CNN
-F 3 "" H 10300 6375 50  0001 C CNN
-F 4 "PANASONIC" H 10500 6775 60  0001 L CNN "Manufacturer"
-F 5 "ERJ2GE0R00X" H 10500 6675 60  0001 L CNN "MPN"
-F 6 "0R" H 10300 6490 50  0000 C CNN "Val"
-	1    10300 6375
+P 10275 6725
+F 0 "R137" H 10275 6938 60  0000 C CNN
+F 1 "R_0R_0402" H 10275 6575 60  0001 C CNN
+F 2 "artix-dc-scm-footprints:0402-res" H 10475 6925 60  0001 L CNN
+F 3 "" H 10275 6725 50  0001 C CNN
+F 4 "PANASONIC" H 10475 7125 60  0001 L CNN "Manufacturer"
+F 5 "ERJ2GE0R00X" H 10475 7025 60  0001 L CNN "MPN"
+F 6 "0R" H 10275 6840 50  0000 C CNN "Val"
+	1    10275 6725
 	1    0    0    -1  
 $EndComp
 Text GLabel 6625 9325 0    50   Input ~ 0
@@ -781,4 +748,67 @@ Text GLabel 9125 9425 2    50   Input ~ 0
 PCIE_HPM_TX[0]_N
 Text GLabel 9125 9325 2    50   Input ~ 0
 PCIE_HPM_TX[0]_P
+$Comp
+L artix-dc-scm:SFF-TA-1002-4C+ J9
+U 1 1 6012802C
+P 7875 1425
+F 0 "J9" H 7875 1590 50  0000 C CNN
+F 1 "SFF-TA-1002-4C+" H 7875 1499 50  0000 C CNN
+F 2 "artix-dc-scm-footprints:SFF-TA-1002-4C+" H 8025 1475 50  0001 C CNN
+F 3 "https://cdn.amphenol-icc.com/media/wysiwyg/files/documentation/sme005.pdf?__cf_chl_jschl_tk__=4604d1306574a1ee474ea914090d3e0c57e266a6-1606907014-0-AbkYBTCTl__kMBcY3BDmgKpfUy32FqitwN2Lniuy8W-uyv2Ev04Q-Q5Mr7srIz_Wnur0_9chB4CRbxKSYcEh7IvAJYsUgJ0PWIS5YdRqqHg567uaZciEX2hQP4ss5l6M4XdNrxEjJppHvyRV3ku89t-VmUSzhgCb8oJlyHpTxST4dEmKZNXfM53TM0tmGirdVbCRt1Byrx5pkz_uMvNABIOj7B2-eDGK52J3DWRD76zEyjdxY7Iz11gPiOY5i_QGIR3uOwkR5LBPNXe8zGqAf8--AKa7RqDbIriQRt90_32C4zIuHqbGa05BXS135E65ov80PbVcb4eSiutCqcJUAacUwu3eVnXVeIumfihJxuP8Rv7_n6saeG_2IuQpEiskzovLGKZM3667Y-rm-AL1NRXTamtvBxqTk0vyMvZ60FgJ" H 8075 1375 50  0001 C CNN
+	1    7875 1425
+	1    0    0    -1  
+$EndComp
+Text GLabel 9125 3525 2    50   Input ~ 0
+ESPI_IO0_1V8
+Text GLabel 9125 3625 2    50   Input ~ 0
+ESPI_IO1_1V8
+Text GLabel 9125 3725 2    50   Input ~ 0
+ESPI_IO2_1V8
+Text GLabel 9125 3825 2    50   Input ~ 0
+ESPI_IO3_1V8
+Text GLabel 9125 3425 2    50   Input ~ 0
+ESPI_RESET_N_1V8
+Text GLabel 9125 3325 2    50   Input ~ 0
+ESPI_ALERT_N_1V8
+Text GLabel 9125 3225 2    50   Input ~ 0
+ESPI_CS0_N_1V8
+Text GLabel 9125 3125 2    50   Input ~ 0
+ESPI_CLK_1V8
+Text GLabel 9125 3925 2    50   Input ~ 0
+ESPI_CS1_N_1V8
+$Comp
+L artix-dc-scm:TP_SMD1MM TP10
+U 1 1 60D49F2E
+P 9975 5750
+F 0 "TP10" V 9975 5650 50  0000 C CNN
+F 1 "TP_SMD1MM" H 9975 5650 50  0001 C CNN
+F 2 "artix-dc-scm-footprints:Testpoint_smd_1mm" H 10175 5950 60  0001 L CNN
+F 3 "" H 10175 6050 60  0001 L CNN
+	1    9975 5750
+	0    1    1    0   
+$EndComp
+$Comp
+L artix-dc-scm:TP_SMD1MM TP11
+U 1 1 60D4A897
+P 9975 5850
+F 0 "TP11" V 9975 5750 50  0000 C CNN
+F 1 "TP_SMD1MM" H 9975 5750 50  0001 C CNN
+F 2 "artix-dc-scm-footprints:Testpoint_smd_1mm" H 10175 6050 60  0001 L CNN
+F 3 "" H 10175 6150 60  0001 L CNN
+	1    9975 5850
+	0    1    1    0   
+$EndComp
+Text GLabel 10175 5750 2    50   Input ~ 0
+PECI_BMC
+Text GLabel 10175 5850 2    50   Input ~ 0
+PVCCIO_PECI
+Wire Wire Line
+	8575 5725 9125 5725
+Wire Wire Line
+	8575 5825 9125 5825
+Wire Wire Line
+	10075 5750 10175 5750
+Wire Wire Line
+	10175 5850 10075 5850
 $EndSCHEMATC
